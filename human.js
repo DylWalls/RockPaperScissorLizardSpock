@@ -1,14 +1,14 @@
-class Human{
+const { Player } = require("./player");
+
+class Human extends Player{
     constructor(stringName, stringChoice){
-        this.name = stringName; //Players name
-        this.choice = stringChoice; // Players choice
+        super(stringName, stringChoice);
     }
-   
-    humanChoice(){
+    humanChoice(){ //choosing a gesture using this.choice=prompt()
         console.log(`${this.name} chose ${this.choice}!`)
         //expected log: Dylan chose rock!
     }
-    
+
 }
 
 module.exports.Human = Human;
