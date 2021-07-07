@@ -1,4 +1,6 @@
 class AI{
-    constructor()
+    constructor(){
+        
+    }
 
 }

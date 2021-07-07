@@ -4,11 +4,11 @@ class Human{
         this.choice = stringChoice; // Players choice
     }
    
-    something(){
+    humanChoice(){
         console.log(`${this.name} chose ${this.choice}!`)
         //expected log: Dylan chose rock!
     }
-
+    
 }
 
 module.exports.Human = Human;
