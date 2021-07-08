@@ -1,14 +1,14 @@
-const { Player } = require("./player");
+const prompt = require('prompt-sync')();
+const { Player } = require("./Player");
 
 class Human extends Player{
     constructor(stringName, stringChoice){
         super(stringName, stringChoice);
     }
+    
+
     humanChoice(){ //choosing a gesture using this.choice=prompt()
-        console.log(`${this.name} chose ${this.choice}!`)
-        //expected log: Dylan chose rock!
+        choice1 = prompt();
     }
-
 }
-
 module.exports.Human = Human;
