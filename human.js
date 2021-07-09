@@ -7,9 +7,9 @@ class Human extends Player{
     }
     
 
-    humanChoice(){ //choosing a gesture using this.choice=prompt()
+    chooseGesture(){ //choosing a gesture using this.choice=prompt()
         console.log(`\n${this.name} please make a selection below!`)
-        console.log("\n1:Rock \n2:Paper \n3:Scissors \n4:Lizard \n5:Spock")
+        console.log("1:Rock \n2:Paper \n3:Scissors \n4:Lizard \n5:Spock")
         let userInput = prompt();
         switch (userInput) {
             case "1":
@@ -26,7 +26,7 @@ class Human extends Player{
                 break;
             case "5":
                 this.choice = this.choices[4];    
-                break;    
+                break;  
         }
     }
 }
