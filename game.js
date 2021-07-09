@@ -17,6 +17,7 @@ class Game{
         do{
         this.gameRules();
         }while(this.playerOne.score = 3 || (this.playerTwo.score = 3));
+
     }
 
     opening(){ //User sees this on start of app
