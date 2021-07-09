@@ -2,13 +2,14 @@ const prompt = require('prompt-sync')();
 const { Player } = require("./Player");
 
 class Human extends Player{
-    constructor(stringName, stringChoice){
-        super(stringName, stringChoice);
+    constructor(stringName){
+        super(stringName);
     }
     
 
     humanChoice(){ //choosing a gesture using this.choice=prompt()
-        console.log("1 Rock 2 Paper 3 Scissors 4 Lizard 5 Spock")
+        console.log("Please make a selection below!")
+        console.log("1:Rock \n2:Paper \n3:Scissors \n4:Lizard \n5:Spock")
         let userInput = prompt();
         switch (userInput) {
             case "1":

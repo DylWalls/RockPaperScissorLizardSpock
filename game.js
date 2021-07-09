@@ -17,47 +17,61 @@ class Game{
     }
 
     opening(){ //User sees this on start of app
-        console.log(`Lets start a game in ${this.name}! \nBest out of 3! GOOD LUCK!`)
-        console.log("Rules of the game is Player one chooses a selection and AI is a random choice!");
+        console.log(`Lets start a game of RPSLS in ${this.name}! \nBest out of 3! GOOD LUCK!`)
     }
 
 //method for gameRules 
     gameRules(){
         this.playerOne.humanChoice();
-        console.log(this.playerOne.choice);
+        console.log(`${this.playerOne.name} chose ${this.playerOne.choice}!`);
         this.playerTwo.humanChoice();
-        console.log(this.playerTwo.choice);
-        if(this.playerOne.choice === [0] && (this.playerTwo.choice===[4] || this.playerTwo.choice===[3])){ //playerOne chose Rock. Arguments within to decide
+        console.log(`${this.playerTwo.name} chose ${this.playerTwo.humanChoice}!`);
+        console.log("Lets see who wins!!")
+        do{
+            console.log(`${this.playerOne.name} score:${this.playerOne.score}`);
+            console.log(`${this.playerTwo.name} score:${this.playerTwo.score}`);
+        if(this.playerOne.choice === "Rock" && (this.playerTwo.choice=== "Lizard" || this.playerTwo.choice=== "Scissors")){ //playerOne chose Rock. Arguments within to decide
             console.log(`${this.playerOne.name} won this round!`);
+            this.playerOne.score++;
         }
-        else if(this.playerTwo.choice === [0] && (this.playerOne.choice===[4] || this.playerOne.choice===[3])){ //playerTwo chose Rock. Arguments within to decide
+        else if(this.playerTwo.choice === "Rock" && (this.playerOne.choice=== "Lizard" || this.playerOne.choice=== "Scissors")){ //playerTwo chose Rock. Arguments within to decide
             console.log(`${this.playerTwo.name} won this round!`);
+            this.playerTwo.score++;
         }
-        else if(this.playerOne.choice === [1] && (this.playerTwo.choice===[4] || this.playerTwo.choice===[0])){ //playerOne chose Paper. Arguments within to decide
+        else if(this.playerOne.choice === "Paper" && (this.playerTwo.choice=== "Spock"|| this.playerTwo.choice=== "Rock")){ //playerOne chose Paper. Arguments within to decide
             console.log(`${this.playerOne.name} won this round!`);
+            this.playerOne.score++;
         }
-        else if(this.playerOne.choice === [1] && (this.playerTwo.choice===[4] || this.playerTwo.choice===[0])){ //playerTwo chose Paper. Arguments within to decide
+        else if(this.playerOne.choice === "Paper" && (this.playerTwo.choice=== "Spock" || this.playerTwo.choice=== "Rock")){ //playerTwo chose Paper. Arguments within to decide
             console.log(`${this.playerTwo.name} won this round!`);
+            this.playerTwo.score++;
         }
-        else if(this.playerOne.choice === [2] && (this.playerTwo.choice===[1] || this.playerTwo.choice===[4])){ //playerOne chose Scissor. Arguments within to decide
+        else if(this.playerOne.choice === "Scissor" && (this.playerTwo.choice=== "Paper" || this.playerTwo.choice=== "Rock")){ //playerOne chose Scissor. Arguments within to decide
             console.log(`${this.playerOne.name} won this round!`);
+            this.playerOne.score++;
         }
-        else if(this.playerTwo.choice === [2] && (this.playerOne.choice===[1] || this.playerOne.choice===[4])){ //playerTwo chose Scissor. Arguments within to decide
+        else if(this.playerTwo.choice === "Scissor" && (this.playerOne.choice=== "Paper" || this.playerOne.choice=== "Rock")){ //playerTwo chose Scissor. Arguments within to decide
             console.log(`${this.playerTwo.name} won this round!`);
+            this.playerTwo.score++;
         }
-        else if(this.playerOne.choice === [3] && (this.playerTwo.choice===[4] || this.playerTwo.choice===[1])){ //playerOne chose Lizard. Arguments within to decide
+        else if(this.playerOne.choice === "Lizard" && (this.playerTwo.choice=== "Spock" || this.playerTwo.choice=== "Paper")){ //playerOne chose Lizard. Arguments within to decide
                 console.log(`${this.playerOne.name} won this round!`);
+                this.playerOne.score++;
         }
-        else if(this.playerTwo.choice === [3] && (this.playerOne.choice===[4] || this.playerOne.choice===[1])){ //playerTwo chose Lizard. Arguments within to decide
+        else if(this.playerTwo.choice === "Lizard" && (this.playerOne.choice=== "Spock" || this.playerOne.choice=== "Paper")){ //playerTwo chose Lizard. Arguments within to decide
                 console.log(`${this.playerTwo.name} won this round!`);
+                this.playerTwo.score++;
         }
-        if(this.playerOne.choice === [4] && (this.playerTwo.choice===[2] || this.playerTwo.choice===[0])){ //playerOne chose Spock. Arguments within to decide
+        else if(this.playerOne.choice === "Spock" && (this.playerTwo.choice=== "Scissor" || this.playerTwo.choice=== "Rock")){ //playerOne chose Spock. Arguments within to decide
             console.log(`${this.playerOne.name} won this round!`);
+            this.playerOne.score++;
         }
-        else if(this.playerOne.choice === [4] && (this.playerTwo.choice===[2] || this.playerTwo.choice===[0])){ //playerTwo chose Spock. Arguments within to decide
+        else if(this.playerOne.choice === "Spock" && (this.playerTwo.choice=== "Scissor" || this.playerTwo.choice=== "Rock")){ //playerTwo chose Spock. Arguments within to decide
             console.log(`${this.playerTwo.name} won this round!`);
+            this.playerTwo.score++;
         }
-    }
+    }while(this.playerOne.score <= 3 && this.playerTwo.score <= 3);
+}
 
 //print outs for AI
     startComputer(){
