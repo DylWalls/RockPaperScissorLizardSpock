@@ -1,7 +1,7 @@
 class Player{
-    constructor(name, choice){
+    constructor(name){
         this.name = name; //Players name
-        this.choice; // Players choice
+        this.choice; 
         this.choices = ["Rock", "Paper", "Scissors", "Lizard", "Spock"];
         this.score=0;
     }

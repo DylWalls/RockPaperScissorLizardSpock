@@ -1,13 +1,12 @@
-const { Player } = require("./player");
+const { Player } = require("./Player");
 
 class AI extends Player{
     constructor(){
-        this.choices = ["Rock", "Paper", "Scissors", "Lizard", "Spock"];
+        super("Bob");
     }
 //random choice for AI
     chooseGesture(){
-        let chooseGesture = this.choices[Math.floor(Math.random()*this.choices.length)];
-       return chooseGesture;
+        this.choice = this.choices[Math.floor(Math.random()*this.choices.length)];      
     }
 }
 
