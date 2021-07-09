@@ -8,8 +8,8 @@ class Human extends Player{
     
 
     humanChoice(){ //choosing a gesture using this.choice=prompt()
-        console.log("Please make a selection below!")
-        console.log("1:Rock \n2:Paper \n3:Scissors \n4:Lizard \n5:Spock")
+        console.log(`\n${this.name} please make a selection below!`)
+        console.log("\n1:Rock \n2:Paper \n3:Scissors \n4:Lizard \n5:Spock")
         let userInput = prompt();
         switch (userInput) {
             case "1":

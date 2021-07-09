@@ -12,7 +12,7 @@ class Game{
     }
     startApp(){ //start of the app method
         this.opening();
-        // this.startComputer();
+        this.startComputer();
         this.startHuman();
         do{
         this.gameRules();
@@ -20,22 +20,19 @@ class Game{
     }
 
     opening(){ //User sees this on start of app
-        console.log(`Lets start a game of RPSLS in ${this.name}! \n\nBest out of 3! GOOD LUCK!`)
+        console.log(`Lets start a game of RPSLS in ${this.name}!\nBest out of 3! GOOD LUCK! \n`)
     }
 
 //method for gameRules 
     gameRules(){
         this.playerOne.humanChoice();
         console.log(`${this.playerOne.name} chose ${this.playerOne.choice}!`);
-        this.playerTwo.humanChoice();
+        this.playerTwo.chooseGesture();;
         console.log(`${this.playerTwo.name} chose ${this.playerTwo.choice}!`);
-        console.log("Lets see who wins!!")
-
-            console.log(`${this.playerOne.name} score:${this.playerOne.score}`);
-            console.log(`${this.playerTwo.name} score:${this.playerTwo.score}`);
+        console.log("Lets see who wins!!");
         if(this.playerOne.choice === "Rock" && (this.playerTwo.choice=== "Lizard" || this.playerTwo.choice=== "Scissors")){ //playerOne chose Rock. Arguments within to decide
             console.log(`${this.playerOne.name} won this round!`);
-            this.playerOne.score++;
+            this.playerOne.score+ 1;
         }
         else if(this.playerTwo.choice === "Rock" && (this.playerOne.choice=== "Lizard" || this.playerOne.choice=== "Scissors")){ //playerTwo chose Rock. Arguments within to decide
             console.log(`${this.playerTwo.name} won this round!`);
@@ -45,15 +42,15 @@ class Game{
             console.log(`${this.playerOne.name} won this round!`);
             this.playerOne.score++;
         }
-        else if(this.playerOne.choice === "Paper" && (this.playerTwo.choice=== "Spock" || this.playerTwo.choice=== "Rock")){ //playerTwo chose Paper. Arguments within to decide
+        else if(this.playerTwo.choice === "Paper" && (this.playerOne.choice=== "Spock" || this.playerOne.choice=== "Rock")){ //playerTwo chose Paper. Arguments within to decide
             console.log(`${this.playerTwo.name} won this round!`);
             this.playerTwo.score++;
         }
-        else if(this.playerOne.choice === "Scissor" && (this.playerTwo.choice=== "Paper" || this.playerTwo.choice=== "Rock")){ //playerOne chose Scissor. Arguments within to decide
+        else if(this.playerOne.choice === "Scissor" && (this.playerTwo.choice=== "Paper" || this.playerTwo.choice=== "Spock")){ //playerOne chose Scissor. Arguments within to decide
             console.log(`${this.playerOne.name} won this round!`);
             this.playerOne.score++;
         }
-        else if(this.playerTwo.choice === "Scissor" && (this.playerOne.choice=== "Paper" || this.playerOne.choice=== "Rock")){ //playerTwo chose Scissor. Arguments within to decide
+        else if(this.playerTwo.choice === "Scissor" && (this.playerOne.choice=== "Paper" || this.playerOne.choice=== "Spock")){ //playerTwo chose Scissor. Arguments within to decide
             console.log(`${this.playerTwo.name} won this round!`);
             this.playerTwo.score++;
         }
@@ -76,16 +73,18 @@ class Game{
         else{
             console.log(`${this.playerOne.name} and ${this.playerTwo.name} chose the same! ITS A TIE!`)
         }
+        console.log(`${this.playerOne.name} score:${this.playerOne.score}`);
+        console.log(`${this.playerTwo.name} score:${this.playerTwo.score}`);
 }
 
 //print outs for AI
     startComputer(){
-        this.playerOne = new AI();
+        // this.playerOne = new AI();
         this.playerTwo = new AI(); 
     }
     startHuman(){
         this.playerOne = new Human(prompt("Please enter your name.  "));
-        this.playerTwo = new Human(prompt("Please enter your name.  "));
+        // this.playerTwo = new Human(prompt("Please enter your name.  "));
     }
 
 }
