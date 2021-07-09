@@ -12,23 +12,49 @@ class Game{
     }
     startApp(){ //start of the app method
         this.opening();
-        this.startComputer();
-        this.startHuman();
+        console.log("Would you like to play Human vs Computer, Human vs Human, or Computer vs Computer?");
+        console.log("Press 1 for HvC \n2 for HvH \n3 for CvC");
+        let userInput = prompt();
+        switch (userInput) {
+            case '1':
+                this.startHumanAI();
+                break;
+            case '2':
+                this.startHumanHuman();
+                break;
+            case '3':
+                this.startComputers();
+                break;
+        }
         do{
         this.gameRules();
-        }while(this.playerOne.score = 3 || (this.playerTwo.score = 3));
+        }while(this.playerOne.score <= 3 || (this.playerTwo.score <= 3));
+        return restartApp();
 
     }
-
+    restartApp(){
+        console.log("Would you like to play again? Y/N")
+        userInput = prompt().toLowerCase();
+        switch (userInput) {
+            case "y":
+                console.log("Great! Lets go again!");
+                this.startApp();
+                break;
+        
+            case "n":
+                console.log("Thanks for playing!");
+                break;
+        }
+    }
     opening(){ //User sees this on start of app
         console.log(`Lets start a game of RPSLS in ${this.name}!\nBest out of 3! GOOD LUCK! \n`)
     }
-
+w
 //method for gameRules 
     gameRules(){
-        this.playerOne.humanChoice();
+        this.playerOne.choice;
         console.log(`${this.playerOne.name} chose ${this.playerOne.choice}!`);
-        this.playerTwo.chooseGesture();;
+        this.playerTwo.choice;
         console.log(`${this.playerTwo.name} chose ${this.playerTwo.choice}!`);
         console.log("Lets see who wins!!");
         if(this.playerOne.choice === "Rock" && (this.playerTwo.choice=== "Lizard" || this.playerTwo.choice=== "Scissors")){ //playerOne chose Rock. Arguments within to decide
@@ -77,17 +103,19 @@ class Game{
         console.log(`${this.playerOne.name} score:${this.playerOne.score}`);
         console.log(`${this.playerTwo.name} score:${this.playerTwo.score}`);
 }
-
-//print outs for AI
-    startComputer(){
-        // this.playerOne = new AI();
-        this.playerTwo = new AI(); 
-    }
-    startHuman(){
+    //Coming from switch case userInput prompt();
+    startHumanAI(){ //Human vs AI
         this.playerOne = new Human(prompt("Please enter your name.  "));
-        // this.playerTwo = new Human(prompt("Please enter your name.  "));
+        this.playerTwo = new AI();
     }
-
+    startHumanHuman(){ //Human vs Human
+        this.playerOne = new Human(prompt("Please enter your name.  "));
+        this.playerTwo = new Human(prompt("Please enter your name.  "));
+    }
+    startComputers(){ //AI vs AI
+        this.playerOne = new AI();
+        this.playerTwo = new AI();
+    }
 }
 
 module.exports.Game = Game;
