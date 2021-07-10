@@ -47,11 +47,12 @@ class Game{
     }
 
     gameRules(){//method for gameRules 
-    do{
+    for(let i=0; this.playerOne.score < 3 && this.playerTwo.score < 3; i++){
         this.playerOne.chooseGesture(); 
         this.playerTwo.chooseGesture();
-        if(this.playerOne.choice == 'undefined!' || this.playerTwo.choice == 'undefined!'){
+        if(this.playerOne.choice == undefined || this.playerTwo.choice == undefined){
             console.log("Please enter a valid number entry!!");
+            i--;
             this.gameRules();
         }
         console.log(`${this.playerOne.name} chose ${this.playerOne.choice}!`);
@@ -99,10 +100,11 @@ class Game{
         }
         else{
             console.log(`${this.playerOne.name} and ${this.playerTwo.name} chose the same! ITS A TIE!`)
+            i--;
         }
         console.log(`${this.playerOne.name} score:${this.playerOne.score}`);
         console.log(`${this.playerTwo.name} score:${this.playerTwo.score}`);
-    }while(this.playerOne.score < 3 || (this.playerTwo.score < 3))
+    }
     this.restartApp();   
 }
     //Coming from switch case userInput prompt();
