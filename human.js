@@ -26,7 +26,10 @@ class Human extends Player{
                 break;
             case "5":
                 this.choice = this.choices[4];    
-                break;  
+                break;
+            default:
+                console.log("Please enter a valid number!");
+                this.chooseGesture();
         }
     }
 }

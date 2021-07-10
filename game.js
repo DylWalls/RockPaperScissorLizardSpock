@@ -40,6 +40,9 @@ class Game{
             case "n":
                 console.log("Thanks for playing!");
                 break;
+            default:
+                console.log("Please enter Y or N!");
+                this.restartApp();
         }
     } 
     opening(){ //User sees this on start of app
@@ -50,14 +53,14 @@ class Game{
     for(let i=0; this.playerOne.score < 3 && this.playerTwo.score < 3; i++){
         this.playerOne.chooseGesture(); 
         this.playerTwo.chooseGesture();
-        if(this.playerOne.choice == undefined || this.playerTwo.choice == undefined){
-            console.log("Please enter a valid number entry!!");
-            i--;
-            this.gameRules();
-        }
         console.log(`${this.playerOne.name} chose ${this.playerOne.choice}!`);
         console.log(`${this.playerTwo.name} chose ${this.playerTwo.choice}!`);
         console.log("Lets see who wins!!");
+        // if(this.playerOne.choice == undefined || this.playerTwo.choice == undefined){
+        //     console.log("Please enter a valid number entry!!");
+        //     i--;
+        //     this.gameRules();
+        // }
         if(this.playerOne.choice === "Rock" && (this.playerTwo.choice=== "Lizard" || this.playerTwo.choice=== "Scissors")){ //playerOne chose Rock. Arguments within to decide
             console.log(`${this.playerOne.name} won this round!`);
             this.playerOne.score++;
@@ -74,11 +77,11 @@ class Game{
             console.log(`${this.playerTwo.name} won this round!`);
             this.playerTwo.score++;
         }
-        else if(this.playerOne.choice === "Scissors" && (this.playerTwo.choice=== "Paper" || this.playerTwo.choice=== "Spock")){ //playerOne chose Scissor. Arguments within to decide
+        else if(this.playerOne.choice === "Scissors" && (this.playerTwo.choice=== "Paper" || this.playerTwo.choice=== "Lizard")){ //playerOne chose Scissor. Arguments within to decide
             console.log(`${this.playerOne.name} won this round!`);
             this.playerOne.score++;
         }
-        else if(this.playerTwo.choice === "Scissors" && (this.playerOne.choice=== "Paper" || this.playerOne.choice=== "Spock")){ //playerTwo chose Scissor. Arguments within to decide
+        else if(this.playerTwo.choice === "Scissors" && (this.playerOne.choice=== "Paper" || this.playerOne.choice=== "Lizard")){ //playerTwo chose Scissor. Arguments within to decide
             console.log(`${this.playerTwo.name} won this round!`);
             this.playerTwo.score++;
         }
